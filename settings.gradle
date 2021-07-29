@@ -1,0 +1,4 @@
+include ':default_bluetooth_library', ':MPChartLib',':bluetooth_library'
+project(':default_bluetooth_library').projectDir=new File('../com.lightricity.bluetooth.default/default_bluetooth_library')
+project(':bluetooth_library').projectDir=new File('../com.lightricity.bluetooth/bluetooth_library')
+include ':app'
