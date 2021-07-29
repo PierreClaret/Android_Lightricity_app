@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lightricity.station">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-feature android:name="android.hardware.bluetooth"/>
+
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
+    <application
+        android:name="com.lightricity.station.app.LightricityApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name="com.lightricity.station.network.ui.SignInActivity"
+            android:label="@string/sign_in"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar" >
+            <nav-graph android:value="@navigation/sign_in_navigation" />
+        </activity>
+        <activity
+            android:name="com.lightricity.station.tagdetails.ui.TagDetailsActivity"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|locale"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar" />
+        <activity
+            android:name="com.lightricity.station.tagsettings.ui.TagSettingsActivity"
+            android:configChanges="orientation|screenSize|locale"
+            android:label="@string/sensor_settings"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar"
+            android:windowSoftInputMode="adjustResize" />
+
+        <service
+            android:name="com.lightricity.station.bluetooth.ScanForDevicesService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="com.lightricity.station.bluetooth.BluetoothForegroundService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="location"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <activity
+            android:name="com.lightricity.station.welcome.ui.WelcomeActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name="com.lightricity.station.about.ui.AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar" />
+        <activity
+            android:name="com.lightricity.station.addtag.ui.AddTagActivity"
+            android:label="@string/add_tag_title"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar" />
+        <activity
+            android:name="com.lightricity.station.settings.ui.AppSettingsActivity"
+            android:label="@string/menu_app_settings"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar" />
+        <activity
+            android:name="com.lightricity.station.startup.ui.StartupActivity"
+            android:noHistory="true"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.lightricity.station.dashboard.ui.DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar" />
+
+        <activity
+            android:name="com.lightricity.station.network.ui.ShareSensorActivity"
+            android:label="@string/share_sensor_title"
+            android:theme="@style/AppTheme.NoActionBar.TransparentStatusBar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.lightricity.station.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <receiver android:name="com.lightricity.station.alarm.receiver.CancelAlarmReceiver" />
+        <receiver android:name="com.lightricity.station.alarm.receiver.MuteAlarmReceiver" />
+        <receiver android:name="com.lightricity.station.bluetooth.ScanningPeriodicReceiver" />
+        <receiver
+            android:name="com.lightricity.station.receivers.RebootSchedulerReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

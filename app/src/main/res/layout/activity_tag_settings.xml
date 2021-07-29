@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context="com.lightricity.station.tagsettings.ui.TagSettingsActivity">
+
+    <RelativeLayout
+        android:background="@drawable/header"
+        android:fitsSystemWindows="true"
+        android:id="@+id/toolbarContainer"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:background="@color/ap_transparent"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:elevation="0dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:background="@drawable/header"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:background="@color/white"
+            android:layout_below="@id/appBarLayout"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tag_settings_item_layout"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:paddingBottom="24dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tagImageView"
+                    android:adjustViewBounds="true"
+                    android:layout_height="200dp"
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bg3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:adjustViewBounds="true"
+                    android:layout_height="200dp"
+                    android:layout_width="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tag_bg_layer"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tagImageSelectButton"
+                    android:alpha="0.7"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginTop="52dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tagImageView"
+                    app:srcCompat="@drawable/icon_bg_refresh" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tagImageCameraButton"
+                    android:alpha="0.7"
+                    android:layout_height="32dp"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="52dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tagImageView"
+                    app:srcCompat="@drawable/icon_bg_camera_01" />
+
+                <TextView
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/background_image"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/tagImageSelectButton" />
+
+                <TextView
+                    android:id="@+id/name_header"
+                    android:background="@color/backgroundLight"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:padding="@dimen/tag_settings_text_padding"
+                    android:text="@string/name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mainDark"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tagImageView" />
+
+                <TextView
+                    android:id="@+id/tagNameTitleTextView"
+                    style="@style/sensorSettingInfoTitleStyle"
+                    android:text="@string/tag_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name_header" />
+
+                <TextView
+                    android:id="@+id/tagNameInputTextView"
+                    style="@style/sensorSettingInfoValueStyle"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintStart_toEndOf="@id/tagNameTitleTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name_header"
+                    tools:text="00:00:00:00:00:00" />
+
+                <TextView
+                    android:id="@+id/alerts_header"
+                    android:background="@color/backgroundLight"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:padding="@dimen/tag_settings_text_padding"
+                    android:text="@string/alerts"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mainDark"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tagNameInputTextView" />
+
+                <LinearLayout
+                    android:id="@+id/alertsContainerLayout"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/alerts_header" />
+
+                <TextView
+                    android:id="@+id/mac_header"
+                    android:background="@color/backgroundLight"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:padding="@dimen/tag_settings_text_padding"
+                    android:text="@string/more_info"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mainDark"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/alertsContainerLayout" />
+
+                <TextView
+                    android:id="@+id/model"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:padding="@dimen/tag_settings_text_padding"
+                    android:text="@string/model"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@+id/title_mac"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+                <TextView
+                    android:id="@+id/inputModelTextView"
+                    android:gravity="end"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:padding="@dimen/tag_settings_text_padding"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/model"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputMacTextView" />
+
+                <TextView
+                    android:id="@+id/title_mac"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:padding="@dimen/tag_settings_text_padding"
+                    android:text="@string/mac_address"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mac_header" />
+
+                <TextView
+                    android:id="@+id/inputMacTextView"
+                    android:gravity="end"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:padding="@dimen/tag_settings_text_padding"
+                    android:textSize="16sp"
+                    android:focusable="true"
+                    android:longClickable="true"
+                    app:layout_constraintStart_toEndOf="@id/title_mac"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mac_header" />
+
+                <TextView
+                    android:id="@+id/SensorIDTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sensor personal ID"
+                    android:padding="@dimen/tag_settings_text_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/model"
+                    />
+
+                <TextView
+                    android:id="@+id/inputSensorIDTextView"
+                    android:gravity="end"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:padding="@dimen/tag_settings_text_padding"
+                    android:textSize="16sp"
+                    android:focusable="true"
+                    android:longClickable="true"
+                    app:layout_constraintStart_toEndOf="@id/SensorIDTitleTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inputModelTextView" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rawValuesLayout"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/SensorIDTitleTextView">
+
+                    <TextView
+                        android:id="@+id/dataFormatTitleTextView"
+                        android:text="@string/data_format"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        style="@style/sensorSettingInfoTitleStyle" />
+
+                    <TextView
+                        android:id="@+id/dataFormatTextView"
+                        app:layout_constraintStart_toEndOf="@id/dataFormatTitleTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        style="@style/sensorSettingInfoValueStyle" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/networkLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/rawValuesLayout">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/networkTitleTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/backgroundLight"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:padding="@dimen/tag_settings_text_padding"
+                        android:text="@string/tagsettings_network_info"
+                        android:textAllCaps="true"
+                        android:textColor="@color/mainDark"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/ownerTitleTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/tag_settings_text_padding"
+                        android:text="@string/tagsettings_owner"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textSize="16sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/networkTitleTextView" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/ownerValueTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:padding="@dimen/tag_settings_text_padding"
+                        android:textSize="16sp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/ownerTitleTextView"
+                        app:layout_constraintTop_toBottomOf="@id/networkTitleTextView" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/calibrateHumidityButton"
+                    style="@style/roundButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/calibration_humidity_button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/networkLayout" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/claimTagButton"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    style="@style/roundButton"
+                    android:text="@string/tagsettings_claim_button"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/shareTagButton"
+                    app:layout_constraintTop_toBottomOf="@+id/calibrateHumidityButton" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/shareTagButton"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    style="@style/roundButton"
+                    android:text="@string/tagsettings_share_button"
+                    app:layout_constraintLeft_toRightOf="@id/claimTagButton"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/calibrateHumidityButton" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/removeTagButton"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:text="@string/tagsettings_sensor_remove"
+                    style="@style/roundButton"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/claimTagButton" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

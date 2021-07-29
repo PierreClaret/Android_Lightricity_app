@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "814782685478",
+    "project_id": "lightricity-application",
+    "storage_bucket": "lightricity-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814782685478:android:ee1cd59fbd73e8d3e5a1e7",
+        "android_client_info": {
+          "package_name": "com.lightricity.station"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814782685478-hbnpggrd1pm0eu332lr652d7da1sdv84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQzRbvZTY3IJRoQ9x7mepzTzq8EobbeDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814782685478-hbnpggrd1pm0eu332lr652d7da1sdv84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

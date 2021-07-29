@@ -1,0 +1,9 @@
+package com.lightricity.station.units.model
+
+import com.lightricity.station.R
+
+enum class TemperatureUnit (val code: String, val title: Int, val unit: Int) {
+    CELSIUS("C", R.string.temperature_celsius_name, R.string.temperature_celsius_unit),
+    FAHRENHEIT("F", R.string.temperature_fahrenheit_name, R.string.temperature_fahrenheit_unit),
+    KELVIN("K", R.string.temperature_kelvin_name, R.string.temperature_kelvin_unit)
+}
