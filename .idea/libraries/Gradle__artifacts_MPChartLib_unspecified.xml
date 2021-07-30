@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: artifacts:MPChartLib:unspecified">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/MPChartLib/build/.transforms/76004f2dbbe8b3964f8ef062b20383c4/jetified-MPChartLib-release/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/MPChartLib/build/.transforms/76004f2dbbe8b3964f8ef062b20383c4/jetified-MPChartLib-release/res" />
+      <root url="file://$PROJECT_DIR$/MPChartLib/build/.transforms/76004f2dbbe8b3964f8ef062b20383c4/jetified-MPChartLib-release/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

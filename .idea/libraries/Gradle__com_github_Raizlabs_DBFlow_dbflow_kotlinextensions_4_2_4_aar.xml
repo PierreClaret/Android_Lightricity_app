@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:4.2.4@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2802344322e792f09e3ddd7a8feb659a/jetified-dbflow-kotlinextensions-4.2.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2802344322e792f09e3ddd7a8feb659a/jetified-dbflow-kotlinextensions-4.2.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2802344322e792f09e3ddd7a8feb659a/jetified-dbflow-kotlinextensions-4.2.4/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Raizlabs.DBFlow/dbflow-kotlinextensions/4.2.4/f219e3019818b0ff5b11bcdeeff90823e5e41c01/dbflow-kotlinextensions-4.2.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
