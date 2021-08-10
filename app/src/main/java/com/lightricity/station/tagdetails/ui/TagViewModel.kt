@@ -218,8 +218,15 @@ class TagViewModel(
     fun getSoundString(tag: Sensor): String =
         tagDetailsInteractor.getSoundString(tag)
 
+    fun getMovementString(tag: Sensor): String =
+        tagDetailsInteractor.getMovementString(tag)
+
+    fun getMagneticString(tag:Sensor): String =
+        tagDetailsInteractor.getMagneticString(tag)
+
     override fun onCleared() {
         super.onCleared()
         Timber.d("TagViewModel cleared!")
     }
+
 }

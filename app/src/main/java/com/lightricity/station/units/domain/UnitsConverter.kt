@@ -5,6 +5,7 @@ import com.lightricity.station.R
 import com.lightricity.station.app.preferences.PreferencesRepository
 import com.lightricity.station.units.model.*
 import com.lightricity.station.util.Utils
+import java.lang.Math.abs
 
 class UnitsConverter (
         private val context: Context,
@@ -28,17 +29,19 @@ class UnitsConverter (
     }
 
     fun getTemperatureString(temperature: Double?): String =
-        if (temperature == null) {
+        if (temperature == 0.0) {
             NO_VALUE_AVAILABLE
         } else {
-            context.getString(R.string.temperature_reading, getTemperatureValue(temperature), getTemperatureUnitString())
+            context.getString(R.string.temperature_reading,
+                temperature?.let { getTemperatureValue(it) }, getTemperatureUnitString())
         }
 
     fun getTemperatureStringWithoutUnit(temperature: Double?): String =
-        if (temperature == null) {
+        if (temperature == 0.0) {
             NO_VALUE_AVAILABLE
         } else {
-            context.getString(R.string.temperature_reading, getTemperatureValue(temperature), "")
+            context.getString(R.string.temperature_reading,
+                temperature?.let { getTemperatureValue(it) }, "")
         }
 
     // Pressure
@@ -59,13 +62,15 @@ class UnitsConverter (
     }
 
     fun getPressureString(pressure: Double?): String {
-        return if (pressure == null) {
+        return if (pressure == 0.0) {
             NO_VALUE_AVAILABLE
         } else {
             if (getPressureUnit() == PressureUnit.PA) {
-                context.getString(R.string.pressure_reading_pa, getPressureValue(pressure), getPressureUnitString())
+                context.getString(R.string.pressure_reading_pa,
+                    pressure?.let { getPressureValue(it) }, getPressureUnitString())
             } else {
-                context.getString(R.string.pressure_reading, getPressureValue(pressure), getPressureUnitString())
+                context.getString(R.string.pressure_reading,
+                    pressure?.let { getPressureValue(it) }, getPressureUnitString())
             }
         }
     }
@@ -95,13 +100,15 @@ class UnitsConverter (
     }
 
     fun getHumidityString(humidity: Double?, temperature: Double?): String {
-        return if (humidity == null || temperature == null) {
+        return if (humidity == 0.0 || temperature == 0.0) {
             NO_VALUE_AVAILABLE
         } else {
             if (getHumidityUnit() == HumidityUnit.DEW) {
-                context.getString(R.string.humidity_reading, getHumidityValue(humidity, temperature), getTemperatureUnitString())
+                context.getString(R.string.humidity_reading,
+                    humidity?.let { temperature?.let { it1 -> getHumidityValue(it, it1) } }, getTemperatureUnitString())
             } else {
-                context.getString(R.string.humidity_reading, getHumidityValue(humidity, temperature), getHumidityUnitString())
+                context.getString(R.string.humidity_reading,
+                    humidity?.let { temperature?.let { it1 -> getHumidityValue(it, it1) } }, getHumidityUnitString())
             }
         }
     }
@@ -122,8 +129,6 @@ class UnitsConverter (
     // Light
     fun getLightUnit(): LightUnit = preferences.getLightUnit()
 
-    fun getAllLightUnits(): Array<LightUnit> = LightUnit.values()
-
     fun getLightUnitString(): String = context.getString(getLightUnit().unit)
 
     fun getLightValue(light: Double): Double {
@@ -133,28 +138,24 @@ class UnitsConverter (
     }
 
     fun getLightString(light: Double?): String =
-        if (light == null) {
+    if (light == 0.0) {
             NO_VALUE_AVAILABLE
         } else {
-            context.getString(R.string.light_reading, getLightValue(light), getLightUnitString())
+            context.getString(R.string.light_reading,
+                light?.let { getLightValue(it) }, getLightUnitString())
         }
 
-    fun getLightStringWithoutUnit(light: Double?): String =
-        if (light == null) {
-            NO_VALUE_AVAILABLE
-        } else {
-            context.getString(R.string.light_reading, getLightValue(light), "")
-        }
 
     //SOUND
 
     fun getSoundUnit(): SoundUnit = preferences.getSoundUnit()
 
     fun getSoundString(sound: Double?): String =
-        if (sound == null) {
+        if (sound == 0.0) {
             NO_VALUE_AVAILABLE
         } else {
-            context.getString(R.string.sound_reading, getSoundValue(sound), getSoundUnitString())
+            context.getString(R.string.sound_reading,
+                sound?.let { getSoundValue(it) }, getSoundUnitString())
         }
 
     fun getSoundUnitString(): String = context.getString(getSoundUnit().unit)
@@ -165,5 +166,32 @@ class UnitsConverter (
             SoundUnit.DB -> sound
         }
     }
+
+    //Acceleration
+
+    fun getMovementString(accelX:Double?, accelY: Double?, accelZ: Double?): String {
+        val test = (accelX?.plus(accelY!!)?.plus(accelZ!!))
+        return if (test?.let { abs(it) }!! >= 1.11) {
+            context.getString(R.string.Mooving_state)
+        } else if (test?.let { abs(it) } == 0.0){
+            NO_VALUE_AVAILABLE
+        }else{
+            context.getString(R.string.Stable_state)
+        }
+    }
+
+    //Magnetic
+
+    fun getMagneticString(magX:Double?, magY: Double?, magZ: Double?): String {
+        val test = (magX?.plus(magY!!)?.plus(magZ!!))
+            return if (test!! >= 1.11) {
+                context.getString(R.string.magnetic_state)
+            }else if (test!! == 0.0) {
+                NO_VALUE_AVAILABLE
+            }else{
+                context.getString(R.string.non_magnetcic_state)
+        }
+    }
+
 
 }

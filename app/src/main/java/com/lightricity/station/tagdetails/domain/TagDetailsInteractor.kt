@@ -59,5 +59,11 @@ class TagDetailsInteractor(
     fun getSoundString(tag: Sensor): String =
         unitsConverter.getSoundString(tag.sound)
 
+    fun getMovementString(tag: Sensor): String =
+        unitsConverter.getMovementString(tag.accelX,tag.accelY,tag.accelZ)
+
+    fun getMagneticString(tag: Sensor): String =
+        unitsConverter.getMagneticString(tag.magX, tag.magY, tag.magZ)
+
 
 }

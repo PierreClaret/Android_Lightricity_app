@@ -6,108 +6,118 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/tempChart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@id/humidChart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/humidChart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@id/pressureChart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tempChart" />
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/pressureChart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@id/gattSyncView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/humidChart" />
-
-    <LinearLayout
-        android:id="@+id/gattSyncView"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pressureChart"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:id="@+id/gattSyncViewButtons"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/clearDataButton"
-                style="@style/roundButton"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:text="@string/clear" />
-
-            <Button
-                android:id="@+id/gattSyncButton"
-                style="@style/roundButton"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginStart="4dp"
-                android:text="@string/sync" />
-
-        </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/gattSyncViewProgress"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:visibility="gone"
-        android:orientation="horizontal">
+        tools:layout_editor_absoluteX="-8dp">
 
-        <TextView
-            android:id="@+id/gattSyncStatusTextView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@string/connecting"
-            app:layout_constraintRight_toLeftOf="@id/gattSyncCancel"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/gattSyncCancel"
-            style="@style/roundButton"
-            android:visibility="gone"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/cancel" />
+            android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/tempChart"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:visibility="invisible" />
 
-    </LinearLayout>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/humidChart"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:visibility="invisible" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/pressureChart"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="invisible" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lightChart"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:visibility="invisible" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/soundChart"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:visibility="invisible">
+
+            </com.github.mikephil.charting.charts.LineChart>
+
+            <LinearLayout
+                android:id="@+id/gattSyncView"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/gattSyncViewButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/clearDataButton"
+                        style="@style/roundButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:text="@string/clear" />
+
+                    <Button
+                        android:id="@+id/gattSyncButton"
+                        style="@style/roundButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/sync" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/gattSyncViewProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/gattSyncStatusTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:text="@string/connecting"
+                        android:textColor="@color/backgroundLight"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/gattSyncCancel"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/gattSyncCancel"
+                        style="@style/roundButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/cancel"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

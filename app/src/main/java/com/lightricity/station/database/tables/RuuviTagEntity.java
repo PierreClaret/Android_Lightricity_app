@@ -89,7 +89,6 @@ public class RuuviTagEntity extends BaseModel {
     @Column
     private String networkBackground;
 
-
     public RuuviTagEntity() {
     }
 
@@ -100,25 +99,20 @@ public class RuuviTagEntity extends BaseModel {
         this.rssi = tag.getRssi() != null ? tag.getRssi() : 0;
         this.sensorID = tag.getSensorID() != null? tag.getSensorID() : 0;
         this.temperature = tag.getTemperature() != null ? tag.getTemperature() : 0.0;
-        this.humidity = tag.getHumidity();
-        this.pressure = tag.getPressure();
+        this.humidity = tag.getHumidity() != null ? tag.getHumidity() : 0.0;
+        this.pressure = tag.getPressure() != null ? tag.getPressure() : 0.0;
         this.accelX = tag.getAccelX() != null ? tag.getAccelX() : 0.0;
         this.accelY = tag.getAccelY() != null ? tag.getAccelY() : 0.0;
         this.accelZ = tag.getAccelZ() != null ? tag.getAccelZ() : 0.0;
         this.magX = tag.getMagX() != null ? tag.getMagX() : 0.0;
         this.magY = tag.getMagY() != null ? tag.getMagY() : 0.0;
-        this.magZ = tag.getMagZ() != null ? tag.getMagZ() : 0.0;
+        this.magY = tag.getMagZ() != null ? tag.getMagZ() : 0.0;
         this.light = tag.getLight() != null ? tag.getLight() : 0.0;
         this.sound = tag.getSound() != null ? tag.getSound() : 0.0;
-        this.magX = tag.getMagX() != null ? tag.getMagX() : 0.0;
-        this.magY = tag.getMagY() != null ? tag.getMagY() : 0.0;
-        this.magZ = tag.getMagZ() != null ? tag.getMagZ() : 0.0;
         this.voltage = tag.getVoltage() != null ? tag.getVoltage() : 0.0;
         this.dataFormat = tag.getDataFormat() != null ? tag.getDataFormat() : "";
         this.txPower = tag.getTxPower() != null ? tag.getTxPower() : 0;
         this.movementCounter = tag.getMovementCounter() != null ? tag.getMovementCounter() : 0;
-        this.measurementSequenceNumber = tag.getMeasurementSequenceNumber() != null
-                ? tag.getMeasurementSequenceNumber() : 0;
         this.connectable = tag.getConnectable() != null ? tag.getConnectable() : false;
     }
 
@@ -250,12 +244,12 @@ public class RuuviTagEntity extends BaseModel {
     }
 
     //@Override
-    public Double getPressure() {
+    public @org.jetbrains.annotations.Nullable Double getPressure() {
         return pressure;
     }
 
     //@Override
-    public void setPressure(Double pressure) {
+    public void setPressure(@org.jetbrains.annotations.Nullable Double pressure) {
         this.pressure = pressure;
     }
 

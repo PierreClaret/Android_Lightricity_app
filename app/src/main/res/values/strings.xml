@@ -276,8 +276,13 @@
     <string name="sound_reading">%1$,.2f %2$s</string>
     <string name="magnetic_reading">%1$,.3f mT</string>
     <string name="light_lum_name">lumex</string>
-    <string name="light_lum_unit">LUM</string>
+    <string name="light_lum_unit">LUX</string>
     <string name="sound_db_name">Decibel</string>
     <string name="sound_db_unit">dB</string>
-
+    <string name="Mooving_state">Mooving</string>
+    <string name="Stable_state">Stable</string>
+    <string name="magnetic_state">Near</string>
+    <string name="non_magnetcic_state">No magnet around</string>
+    <string name="light">Luminosity (%1$s)</string>
+    <string name="sound">Surrounding sound (%1$s)</string>
 </resources>

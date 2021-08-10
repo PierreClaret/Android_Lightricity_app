@@ -31,11 +31,33 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/mainDark"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@id/bell"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="01:01:01:01:01:01" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dataType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="118dp"
+        android:paddingTop="4dp"
+        android:paddingStart="8dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/letterImage"
+        app:layout_constraintTop_toBottomOf="@+id/background"
+        tools:text="Format data" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sensorBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingStart="8dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/dataType"
+        app:layout_constraintTop_toBottomOf="@+id/background"
+        tools:text="Sensor Brand" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/bell"
@@ -69,7 +91,7 @@
         app:columnCount="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/letterImage"
+        app:layout_constraintTop_toBottomOf="@id/dataType"
         app:useDefaultMargins="true">
 
         <RelativeLayout
@@ -150,6 +172,57 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_columnWeight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/row_main_sound_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                app:srcCompat="@drawable/icon_measure_small_sound" />
+
+            <TextView
+                android:id="@+id/sound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@id/row_main_sound_icon"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/sound_reading"
+                android:textColor="@color/mainDark"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_columnWeight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/row_main_light_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                app:srcCompat="@drawable/icon_measure_small_light" />
+
+            <TextView
+                android:id="@+id/light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@id/row_main_light_icon"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/light_reading"
+                android:textColor="@color/mainDark"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"

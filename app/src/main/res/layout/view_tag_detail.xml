@@ -113,7 +113,7 @@
                 android:layout_width="42dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/oswald_light"
-                android:gravity="center"
+                android:gravity="bottom"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 tools:text="°U" />
@@ -192,66 +192,17 @@
             app:srcCompat="@drawable/icon_measure_magnetic" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tagMagneticXTextView"
+                android:id="@+id/tagMagneticTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/montserrat"
-                tools:text="@string/magnetic_reading"
+                tools:text="@string/magnetic_state"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/xMagUnit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:text="x"
-                android:textColor="@color/ap_white" />
-
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tagMagneticYTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/montserrat"
-                tools:text="@string/magnetic_reading"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-            android:id="@+id/yMagUnit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:text="y"
-            android:textColor="@color/ap_white" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tagMagneticZTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/montserrat"
-                tools:text="@string/magnetic_reading"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/zMagUnit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:text="z"
-                android:textColor="@color/ap_white" />
 
         </LinearLayout>
 
@@ -270,65 +221,16 @@
                 app:srcCompat="@drawable/icon_measure_acceleration" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tagAccelerationXTextView"
+                android:id="@+id/tagAccelerationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/montserrat"
-                tools:text="@string/acceleration_reading"
+                tools:text="@string/Mooving_state"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/xAccelUnit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:text="x"
-                android:textColor="@color/ap_white" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tagAccelerationYTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/montserrat"
-                tools:text="@string/acceleration_reading"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/yAccelUnit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:text="y"
-                android:textColor="@color/ap_white" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tagAccelerationZTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/montserrat"
-                tools:text="@string/acceleration_reading"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/zAccelUnit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:text="z"
-                android:textColor="@color/ap_white" />
 
         </LinearLayout>
 
