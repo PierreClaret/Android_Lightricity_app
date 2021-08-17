@@ -54,17 +54,21 @@ class CsvExporter(
                     ))
                 "5" -> fileWriter.append(
                     context.getString(
-                        R.string.export_csv_header_format5,
+                        R.string.export_csv_header_format3,
                         unitsConverter.getTemperatureUnitString(),
                         unitsConverter.getHumidityUnitString(),
-                        unitsConverter.getPressureUnitString()
+                        unitsConverter.getPressureUnitString(),
+                        unitsConverter.getLightUnitString(),
+                        unitsConverter.getSoundUnitString(),
                     ))
                 else -> fileWriter.append(
                     context.getString(
-                        R.string.export_csv_header_format2_4,
+                        R.string.export_csv_header_format3,
                         unitsConverter.getTemperatureUnitString(),
                         unitsConverter.getHumidityUnitString(),
-                        unitsConverter.getPressureUnitString()
+                        unitsConverter.getPressureUnitString(),
+                        unitsConverter.getLightUnitString(),
+                        unitsConverter.getSoundUnitString(),
                     ))
             }
             fileWriter.append('\n')

@@ -192,26 +192,37 @@ class TagFragment : Fragment(R.layout.view_tag_detail), KodeinAware {
     private fun updateTagData(tag: Sensor) {
         Timber.d("updateTagData for ${tag.id}")
 
-
-        tagTemperatureTextView.text = viewModel.getTemperatureStringWithoutUnit(tag)
-        tagHumidityTextView.text = viewModel.getHumidityString(tag)
-        tagPressureTextView.text = viewModel.getPressureString(tag)
+        if (tag.temperature == 0.0){
+            tagTemperatureLayout.visibility = View.GONE
+        }else { tagTemperatureTextView.text = viewModel.getTemperatureString(tag) }
+        if (tag.humidity == 0.0){
+            tagHumidityLayout.visibility = View.GONE
+        }else { tagHumidityTextView.text = viewModel.getHumidityString(tag)}
+        if (tag.pressure == 0.0){
+            tagPressureLayout.visibility = View.GONE
+        }else { tagPressureTextView.text = viewModel.getPressureString(tag)}
         tagSignalTextView.text = viewModel.getSignalString(tag)
-        tagLightTextView.text = viewModel.getLightString(tag)
-        tagSoundTextView.text = viewModel.getSoundString(tag)
-        tagAccelerationXTextView.text = getString(R.string.acceleration_reading, tag.accelX)
-        tagAccelerationYTextView.text = getString(R.string.acceleration_reading, tag.accelY)
-        tagAccelerationZTextView.text = getString(R.string.acceleration_reading, tag.accelZ)
-        tagMagneticXTextView.text = getString(R.string.magnetic_reading, tag.magX)
-        tagMagneticYTextView.text = getString(R.string.magnetic_reading, tag.magY)
-        tagMagneticZTextView.text = getString(R.string.magnetic_reading, tag.magZ)
+        if (tag.light == 0.0){
+            tagLightLayout.visibility = View.GONE
+        }else { tagLightTextView.text = viewModel.getLightString(tag)}
+        if (tag.sound == 0.0){
+            tagSoundLayout.visibility = View.GONE
+        }else { tagSoundTextView.text = viewModel.getSoundString(tag)}
+        if (tag.co2 == 0.0){
+            tagCO2Layout.visibility = View.GONE
+        }else { tagCO2TextView.text = viewModel.getCO2String(tag)}
+        if (tag.accelX == 0.0 && tag.accelY == 0.0 && tag.accelZ == 0.0){
+            tagAccelarationLayout.visibility = View.GONE
+        }else { tagAccelerationTextView.text = viewModel.getMovementString(tag)}
+        if (tag.magX == 0.0 && tag.magY == 0.0 && tag.magZ == 0.0){
+            tagMagneticLayout.visibility = View.GONE
+        }else { tagMagneticTextView.text = viewModel.getMagneticString(tag)}
 
         tagUpdatedTextView.text = getString(R.string.updated, tag.updatedAt?.describingTimeSince(requireContext()))
 
         val unit = viewModel.getTemperatureUnitString()
         val unitSpan = SpannableString(unit)
         unitSpan.setSpan(SuperscriptSpan(), 0, unit.length, 0)
-        tagTempUnitTextView.text = unitSpan
         tag.connectable?.let {
             if (it) {
                 gattSyncView.visibility = View.VISIBLE
@@ -220,6 +231,7 @@ class TagFragment : Fragment(R.layout.view_tag_detail), KodeinAware {
             }
         }
     }
+
 
     private fun setupViewVisibility(view: View, showGraph: Boolean) {
         val graph = view.findViewById<View>(R.id.tag_graphs)

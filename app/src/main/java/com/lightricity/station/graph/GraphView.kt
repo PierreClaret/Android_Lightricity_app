@@ -1,5 +1,6 @@
 package com.lightricity.station.graph
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Matrix
@@ -43,7 +44,10 @@ class GraphView (
     private lateinit var tempChart: LineChart
     private lateinit var humidChart: LineChart
     private lateinit var pressureChart: LineChart
+    private lateinit var lightChart: LineChart
+    private lateinit var soundChart: LineChart
 
+    @SuppressLint("StringFormatInvalid")
     fun drawChart(
             inputReadings: List<TagSensorReading>,
             view: View
@@ -62,6 +66,8 @@ class GraphView (
         val tempData: MutableList<Entry> = ArrayList()
         val humidData: MutableList<Entry> = ArrayList()
         val pressureData: MutableList<Entry> = ArrayList()
+        val lightData: MutableList<Entry> = ArrayList()
+        val soundData: MutableList<Entry> = ArrayList()
 
         storedReadings?.let { tagReadings ->
             if (tagReadings.size > 0) {
@@ -70,7 +76,9 @@ class GraphView (
                 val entries = tagReadings.map { entry->
                     GraphEntry(
                         timestamp = (entry.createdAt.time - from).toFloat(),
+                        light = unitsConverter.getLightValue(entry.light).toFloat(),
                         temperature = unitsConverter.getTemperatureValue(entry.temperature).toFloat(),
+                        sound = unitsConverter.getSoundValue(entry.sound).toFloat(),
                         humidity = entry.humidity?.let {
                             unitsConverter.getHumidityValue(it, entry.temperature).toFloat()
                         },
@@ -88,20 +96,30 @@ class GraphView (
                     entry.pressure?.let {
                         pressureData.add(Entry(entry.timestamp, it))
                     }
+                    entry.light?.let {
+                        lightData.add(Entry(entry.timestamp, it))
+                    }
+                    entry.sound?.let {
+                        soundData.add(Entry(entry.timestamp, it))
+                    }
                 }
             } else {
                 val timestamp = to.toFloat()
                 tempData.add(Entry(timestamp, 0f))
                 humidData.add(Entry(timestamp, 0f))
                 pressureData.add(Entry(timestamp, 0f))
+                lightData.add(Entry(timestamp, 0f))
+                soundData.add(Entry(timestamp, 0f))
             }
 
             addDataToChart(tempData, tempChart, context.getString(R.string.temperature, unitsConverter.getTemperatureUnitString()))
             addDataToChart(humidData, humidChart, context.getString(R.string.humidity, unitsConverter.getHumidityUnitString()))
             addDataToChart(pressureData, pressureChart, context.getString(R.string.pressure, unitsConverter.getPressureUnitString()))
+            addDataToChart(lightData, lightChart, context.getString(R.string.light, unitsConverter.getLightUnitString()))
+            addDataToChart(soundData, soundChart, context.getString(R.string.sound, unitsConverter.getSoundUnitString()))
 
             if (!offsetsNormalized) {
-                normalizeOffsets(tempChart, humidChart, pressureChart)
+                normalizeOffsets(tempChart, humidChart, pressureChart, lightChart, soundChart)
                 offsetsNormalized = true
             }
         }
@@ -112,10 +130,14 @@ class GraphView (
             tempChart = view.findViewById(R.id.tempChart)
             humidChart = view.findViewById(R.id.humidChart)
             pressureChart = view.findViewById(R.id.pressureChart)
+            lightChart = view.findViewById(R.id.lightChart)
+            soundChart = view.findViewById(R.id.soundChart)
 
             tempChart.isVisible = true
             humidChart.isVisible = true
             pressureChart.isVisible = true
+            lightChart.isVisible = true
+            soundChart.isVisible = true
 
             tempChart.axisLeft.valueFormatter = AxisLeftValueFormatter("%.2f")
             tempChart.axisLeft.granularity = 0.01f
@@ -128,12 +150,18 @@ class GraphView (
                 pressureChart.axisLeft.valueFormatter = AxisLeftValueFormatter("%.2f")
                 pressureChart.axisLeft.granularity = 0.01f
             }
+            lightChart.axisLeft.valueFormatter = AxisLeftValueFormatter("%.2f")
+            lightChart.axisLeft.granularity = 0.01f
+            soundChart.axisLeft.valueFormatter = AxisLeftValueFormatter("%.2f")
+            soundChart.axisLeft.granularity = 0.01f
 
             tempChart.axisRight.isEnabled = false
             humidChart.axisRight.isEnabled = false
             pressureChart.axisRight.isEnabled = false
+            lightChart.axisRight.isEnabled = false
+            soundChart.axisRight.isEnabled = false
 
-            synchronizeChartGestures(setOf(tempChart, humidChart, pressureChart))
+            synchronizeChartGestures(setOf(tempChart, humidChart, pressureChart, lightChart, soundChart))
             graphSetuped = true
         }
     }
@@ -253,7 +281,7 @@ class GraphView (
         }
     }
 
-    private fun normalizeOffsets(tempChart: LineChart, humidChart: LineChart, pressureChart: LineChart) {
+    private fun normalizeOffsets(tempChart: LineChart, humidChart: LineChart, pressureChart: LineChart, lightChart: LineChart, soundChart: LineChart) {
         val offsetLeft =
             if (pressureChart.viewPortHandler.offsetLeft() > tempChart.viewPortHandler.offsetLeft()) {
                 pressureChart.viewPortHandler.offsetLeft() * 1.1f
@@ -279,6 +307,20 @@ class GraphView (
         )
 
         pressureChart.setViewPortOffsets(
+            offsetLeft,
+            offsetTop,
+            offsetRight,
+            offsetBottom
+        )
+
+        lightChart.setViewPortOffsets(
+            offsetLeft,
+            offsetTop,
+            offsetRight,
+            offsetBottom
+        )
+
+        soundChart.setViewPortOffsets(
             offsetLeft,
             offsetTop,
             offsetRight,

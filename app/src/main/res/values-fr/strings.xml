@@ -229,9 +229,19 @@
     <string name="pduformat2_name">Format de données C</string>
     <string name="light_reading">%1$,.2f %2$s</string>
     <string name="sound_reading">%1$,.2f %2$s</string>
-    <string name="magnetic_reading">%1$,.3f mT</string>
     <string name="light_lum_name">lumex</string>
-    <string name="light_lum_unit">LUM</string>
+    <string name="light_lum_unit">LUX</string>
     <string name="sound_db_name">Decibel</string>
     <string name="sound_db_unit">dB</string>
+    <string name="Mooving_state">Mooving</string>
+    <string name="Stable_state">Stable</string>
+    <string name="magnetic_state">Magnet proche</string>
+    <string name="non_magnetcic_state">Pas de magnet proche</string>
+    <string name="light">Luminosity</string>
+    <string name="sound">Surrounding sound</string>
+    <string name="co2_ppm_name">Partie per million</string>
+    <string name="co2_ppm_unit">ppm</string>
+    <string name="co2_reading">%1$,.2f %2$s</string>
+    <string name="vendorID">Vendor ID</string>
+    <string name="frame_type_format">Frame Type</string>
 </resources>

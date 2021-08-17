@@ -12,7 +12,6 @@ import kotlin.math.round
 
 class Preferences constructor(val context: Context) {
 
-
     private val sharedPreferences: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(context) }
 
     var backgroundScanInterval: Int
@@ -102,6 +101,17 @@ class Preferences constructor(val context: Context) {
     set(value) {
         sharedPreferences.edit().putInt(PREF_SOUND_UNIT, value.code).apply()
     }
+
+    var co2Unit: CO2Unit
+        get(){
+            return when (sharedPreferences.getInt(PREF_CO2_UNIT, 0)){
+                0 -> CO2Unit.ppm
+                else -> CO2Unit.ppm
+            }
+        }
+        set(value) {
+            sharedPreferences.edit().putInt(PREF_SOUND_UNIT, value.code).apply()
+        }
 
     var gatewayUrl: String
         get() = sharedPreferences.getString(PREF_BACKEND, DEFAULT_GATEWAY_URL)
@@ -238,6 +248,7 @@ class Preferences constructor(val context: Context) {
         private const val PREF_LIGHT_UNIT = "pref_light_unit"
         private const val PREF_SOUND_UNIT = "pref_sound_unit"
         private const val PREF_PDU_UNIT = "pref_pduformat_unit"
+        private const val PREF_CO2_UNIT = "pref_co2_unit"
         private const val PREF_BACKEND = "pref_backend"
         private const val PREF_DEVICE_ID = "pref_device_id"
         private const val PREF_WAKELOCK = "pref_wakelock"

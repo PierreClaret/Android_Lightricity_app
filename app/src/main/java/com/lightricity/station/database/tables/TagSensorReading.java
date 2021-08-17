@@ -65,6 +65,8 @@ public class TagSensorReading extends BaseModel {
     @Column
     public double sound;
     @Column
+    public double co2;
+    @Column
     public double voltage;
     @Column
     public String dataFormat;
@@ -106,6 +108,7 @@ public class TagSensorReading extends BaseModel {
         this.rssi = tag.getRssi() != null ? tag.getRssi() : 0;
         this.light = tag.getLight() != null ? tag.getLight() : 0.0;
         this.sound = tag.getSound() != null ? tag.getSound() : 0.0;
+        this.co2 = tag.getCo2() != null ? tag.getCo2() : 0.0;
         this.voltage = tag.getVoltage() != null ? tag.getVoltage() : 0.0;
         this.dataFormat = tag.getDataFormat() != null ? tag.getDataFormat() : "";
         this.txPower = tag.getTxPower() != null ? tag.getTxPower() : 0;

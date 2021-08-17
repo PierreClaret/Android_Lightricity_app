@@ -26,6 +26,10 @@ import kotlinx.android.synthetic.main.item_dashboard.view.letterImage
 import kotlinx.android.synthetic.main.item_dashboard.view.pressure
 import kotlinx.android.synthetic.main.item_dashboard.view.signal
 import kotlinx.android.synthetic.main.item_dashboard.view.temperature
+import kotlinx.android.synthetic.main.item_dashboard.view.light
+import kotlinx.android.synthetic.main.item_dashboard.view.sound
+import kotlinx.android.synthetic.main.item_dashboard.view.dataType
+import kotlinx.android.synthetic.main.item_dashboard.view.sensorBrand
 
 class RuuviTagAdapter(
     private val activity: AppCompatActivity,
@@ -42,9 +46,13 @@ class RuuviTagAdapter(
 
         item?.let {
             view.deviceId.text = it.displayName
+            view.dataType.text = it.dataFormat
+            view.sensorBrand.text = it.brand
             view.temperature.text = it.temperatureString
             view.humidity.text = converter.getHumidityString(it.humidity, it.temperature)
             view.pressure.text = converter.getPressureString(it.pressure)
+            view.sound.text = converter.getSoundString(it.sound)
+            view.light.text = converter.getLightString(it.light)
             view.signal.text = converter.getSignalString(it.rssi)
         }
 
