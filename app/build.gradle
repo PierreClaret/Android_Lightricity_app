@@ -74,6 +74,9 @@ dependencies {
     })
     // https://mvnrepository.com/artifact/com.opencsv/opencsv
     implementation 'com.opencsv:opencsv:5.5'
+
+    //implementation ('com.github.PierreClaret:com.lightricity.bluetooth:1.0.0')
+    //implementation ('com.github.PierreClaret:com.lightricity.bluetooth.default:1.0.0')
     implementation project(':bluetooth_library')
     implementation project(':default_bluetooth_library')
 

@@ -24,7 +24,9 @@ public class RuuviTagEntity extends BaseModel {
     @Column
     private int sensorID;
     @Column
-    private String brand;
+    private int vendorID;
+    @Column
+    private int frame;
     @Column
     private int rssi;
     @Column
@@ -58,6 +60,8 @@ public class RuuviTagEntity extends BaseModel {
     private Double light;
     @Column
     private Double sound;
+    @Column
+    private Double co2;
     @Column
     private Date updateAt;
     @Column
@@ -95,7 +99,8 @@ public class RuuviTagEntity extends BaseModel {
     public RuuviTagEntity(FoundSensor tag) {
         this.id = tag.getId();
         this.url = tag.getUrl();
-        this.brand = tag.getBrand();
+        this.vendorID = tag.getVendorID() != null ? tag.getVendorID() : 0;
+        this.frame = tag.getFrame() != null ? tag.getFrame() : 0;
         this.rssi = tag.getRssi() != null ? tag.getRssi() : 0;
         this.sensorID = tag.getSensorID() != null? tag.getSensorID() : 0;
         this.temperature = tag.getTemperature() != null ? tag.getTemperature() : 0.0;
@@ -109,6 +114,7 @@ public class RuuviTagEntity extends BaseModel {
         this.magY = tag.getMagZ() != null ? tag.getMagZ() : 0.0;
         this.light = tag.getLight() != null ? tag.getLight() : 0.0;
         this.sound = tag.getSound() != null ? tag.getSound() : 0.0;
+        this.co2 = tag.getCo2() != null ? tag.getCo2() : 0.0;
         this.voltage = tag.getVoltage() != null ? tag.getVoltage() : 0.0;
         this.dataFormat = tag.getDataFormat() != null ? tag.getDataFormat() : "";
         this.txPower = tag.getTxPower() != null ? tag.getTxPower() : 0;
@@ -129,6 +135,7 @@ public class RuuviTagEntity extends BaseModel {
         this.magZ = reading.magZ;
         this.light = reading.light;
         this.sound = reading.sound;
+        this.co2 = reading.co2;
         this.voltage = reading.voltage;
         this.dataFormat = reading.dataFormat;
         this.txPower = reading.txPower;
@@ -140,8 +147,9 @@ public class RuuviTagEntity extends BaseModel {
 
     public RuuviTagEntity preserveData(RuuviTagEntity tag) {
         tag.setName(this.getName());
-        tag.setBrand(this.getBrand());
+        tag.setVendorID(this.getVendorID());
         tag.setSensorID(this.getSensorID());
+        tag.setFrame(this.getFrame());
         tag.setCreateDate(this.getCreateDate());
         tag.setFavorite(this.isFavorite());
         tag.setGatewayUrl(this.getGatewayUrl());
@@ -192,13 +200,23 @@ public class RuuviTagEntity extends BaseModel {
     }
 
     //@Override
-    public String getBrand() {
-        return brand;
+    public int getVendorID() {
+        return vendorID;
     }
 
     //@Override
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setVendorID(int vendorID) {
+        this.vendorID = vendorID;
+    }
+
+    //@Override
+    public int getFrame() {
+        return frame;
+    }
+
+    //@Override
+    public void setFrame(int frame) {
+        this.frame = frame;
     }
 
     //@Override
@@ -337,6 +355,16 @@ public class RuuviTagEntity extends BaseModel {
     //@Override
     public void setSound(Double sound) {
         this.sound = sound;
+    }
+
+    //@Override
+    public Double getCO2() {
+        return co2;
+    }
+
+    //@Override
+    public void setCO2(Double co2) {
+        this.co2 = co2;
     }
 
     //@Override

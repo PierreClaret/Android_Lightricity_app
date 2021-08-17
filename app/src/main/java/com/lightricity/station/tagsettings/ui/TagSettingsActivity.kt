@@ -466,14 +466,10 @@ class TagSettingsActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun updateReadings(tag: RuuviTagEntity) {
-        if (tag.dataFormat.startsWith("Decode")) {
             rawValuesLayout.isVisible = true
-            dataFormatTextView.text = tag.dataFormat.toString()
-            inputModelTextView.text = tag.brand.toString()
             inputSensorIDTextView.text = tag.sensorID.toString()
-        } else {
-            rawValuesLayout.isVisible = false
-        }
+            inputVendorIDTextView.text = tag.vendorID.toString()
+            frametypeFormatTextView.text = tag.frame.toString()
     }
 
     private fun delete() {

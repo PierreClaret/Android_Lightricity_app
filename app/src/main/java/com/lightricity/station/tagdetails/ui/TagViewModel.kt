@@ -224,6 +224,9 @@ class TagViewModel(
     fun getMagneticString(tag:Sensor): String =
         tagDetailsInteractor.getMagneticString(tag)
 
+    fun getCO2String(tag: Sensor): String =
+        tagDetailsInteractor.getCO2String(tag)
+
     override fun onCleared() {
         super.onCleared()
         Timber.d("TagViewModel cleared!")

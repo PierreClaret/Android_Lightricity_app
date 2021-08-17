@@ -167,20 +167,44 @@ class UnitsConverter (
         }
     }
 
+    //CO2
+
+    fun getCO2Unit(): CO2Unit = preferences.getCO2Unit()
+
+    fun getCO2String(co2: Double?): String =
+        if (co2 == 0.0) {
+            NO_VALUE_AVAILABLE
+        } else {
+            context.getString(R.string.co2_reading,
+                co2?.let { getCO2Value(it) }, getSoundUnitString())
+        }
+
+    fun getCO2UnitString(): String = context.getString(getCO2Unit().unit)
+
+
+    fun getCO2Value(co2: Double): Double {
+        return when (getCO2Unit()) {
+            CO2Unit.ppm -> co2
+        }
+    }
     //Acceleration
 
     fun getMovementString(accelX:Double?, accelY: Double?, accelZ: Double?): String {
         val test = (accelX?.plus(accelY!!)?.plus(accelZ!!))
+        // Condition of movement to be arranged. When acceleration in x ory different than 0 or z different than 1 sensors is moving
         return if (test?.let { abs(it) }!! >= 1.11) {
             context.getString(R.string.Mooving_state)
+            // When no value x,y z t0 zero
         } else if (test?.let { abs(it) } == 0.0){
             NO_VALUE_AVAILABLE
+            // If there are value transmitted different than 0 but do not match the first if
         }else{
             context.getString(R.string.Stable_state)
         }
     }
 
     //Magnetic
+    //Same than acceleration but with magnetic
 
     fun getMagneticString(magX:Double?, magY: Double?, magZ: Double?): String {
         val test = (magX?.plus(magY!!)?.plus(magZ!!))

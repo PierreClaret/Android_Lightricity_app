@@ -285,4 +285,9 @@
     <string name="non_magnetcic_state">No magnet around</string>
     <string name="light">Luminosity (%1$s)</string>
     <string name="sound">Surrounding sound (%1$s)</string>
+    <string name="co2_ppm_name">Partie per million</string>
+    <string name="co2_ppm_unit">ppm</string>
+    <string name="co2_reading">%1$,.2f %2$s</string>
+    <string name="vendorID">Vendor ID</string>
+    <string name="frame_type_format">Frame Type</string>
 </resources>

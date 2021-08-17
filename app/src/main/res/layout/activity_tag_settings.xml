@@ -171,25 +171,25 @@
                     app:layout_constraintTop_toBottomOf="@id/alertsContainerLayout" />
 
                 <TextView
-                    android:id="@+id/model"
+                    android:id="@+id/vendor"
                     android:fontFamily="@font/roboto_medium"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:padding="@dimen/tag_settings_text_padding"
-                    android:text="@string/model"
+                    android:text="@string/vendorID"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
                     android:textSize="16sp"
                     app:layout_constraintTop_toBottomOf="@+id/title_mac"
                     app:layout_constraintStart_toStartOf="parent"
                     />
                 <TextView
-                    android:id="@+id/inputModelTextView"
+                    android:id="@+id/inputVendorIDTextView"
                     android:gravity="end"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:padding="@dimen/tag_settings_text_padding"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@id/model"
+                    app:layout_constraintStart_toEndOf="@id/vendor"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/inputMacTextView" />
 
@@ -227,7 +227,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/model"
+                    app:layout_constraintTop_toBottomOf="@id/vendor"
                     />
 
                 <TextView
@@ -241,7 +241,7 @@
                     android:longClickable="true"
                     app:layout_constraintStart_toEndOf="@id/SensorIDTitleTextView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/inputModelTextView" />
+                    app:layout_constraintTop_toBottomOf="@id/inputVendorIDTextView" />
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -251,15 +251,15 @@
                     app:layout_constraintTop_toBottomOf="@id/SensorIDTitleTextView">
 
                     <TextView
-                        android:id="@+id/dataFormatTitleTextView"
-                        android:text="@string/data_format"
+                        android:id="@+id/frametypeFormatTitleTextView"
+                        android:text="@string/frame_type_format"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         style="@style/sensorSettingInfoTitleStyle" />
 
                     <TextView
-                        android:id="@+id/dataFormatTextView"
-                        app:layout_constraintStart_toEndOf="@id/dataFormatTitleTextView"
+                        android:id="@+id/frametypeFormatTextView"
+                        app:layout_constraintStart_toEndOf="@id/frametypeFormatTitleTextView"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         style="@style/sensorSettingInfoValueStyle" />

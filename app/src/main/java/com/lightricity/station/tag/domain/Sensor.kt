@@ -6,7 +6,9 @@ import java.util.Date
 data class Sensor(
     val id: String,
     val name: String,
-    val brand: String,
+    val frametype: Int? = null,
+    val sensorid: Int? = null,
+    val vandorid: Int? = null,
     val displayName: String,
     val rssi: Int,
     val temperature: Double? = null,
@@ -14,6 +16,7 @@ data class Sensor(
     val pressure: Double? = null,
     val light: Double? = null,
     val sound: Double? = null,
+    val co2: Double? = null,
     val accelX: Double? = null,
     val accelY: Double? = null,
     val accelZ: Double? = null,

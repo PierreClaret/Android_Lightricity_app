@@ -177,5 +177,12 @@ class PreferencesRepository(private val preferences: Preferences) {
         preferences.soundUnit = unit
     }
 
+    fun getCO2Unit(): CO2Unit =
+        preferences.co2Unit
+
+    fun setCO2Unit(unit: CO2Unit){
+        preferences.co2Unit
+    }
+
 
 }

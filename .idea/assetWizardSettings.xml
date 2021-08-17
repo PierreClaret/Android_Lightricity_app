@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Users/pierre/Desktop/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/surround_sound/baseline_surround_sound_24.xml" />
+                                      <entry key="url" value="jar:file:/Users/pierre/Desktop/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/coronavirus/baseline_coronavirus_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,7 +28,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="icon_measure_small_sound" />
+                            <entry key="outputName" value="icon_measure_co2" />
                           </map>
                         </option>
                       </PersistentState>

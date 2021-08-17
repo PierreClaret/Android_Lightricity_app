@@ -65,5 +65,8 @@ class TagDetailsInteractor(
     fun getMagneticString(tag: Sensor): String =
         unitsConverter.getMagneticString(tag.magX, tag.magY, tag.magZ)
 
+    fun getCO2String(tag: Sensor): String =
+        unitsConverter.getCO2String(tag.co2)
+
 
 }
