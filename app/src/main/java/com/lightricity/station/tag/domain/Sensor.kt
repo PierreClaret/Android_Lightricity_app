@@ -8,7 +8,7 @@ data class Sensor(
     val name: String,
     val frametype: Int? = null,
     val sensorid: Int? = null,
-    val vandorid: Int? = null,
+    val vendorid: Int? = null,
     val displayName: String,
     val rssi: Int,
     val temperature: Double? = null,
@@ -34,5 +34,5 @@ data class Sensor(
     val userBackground: String?,
     val status: AlarmStatus = AlarmStatus.NO_ALARM,
     var connectable: Boolean?,
-    val lastSync: Date?
+    val lastSync: Date?,
 )

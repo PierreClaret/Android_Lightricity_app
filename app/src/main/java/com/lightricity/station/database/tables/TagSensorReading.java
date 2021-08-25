@@ -47,6 +47,9 @@ public class TagSensorReading extends BaseModel {
     @Nullable
     public Double pressure;
     @Column
+    @Nullable
+    public Double co2;
+    @Column
     public int rssi;
     @Column
     public double accelX;
@@ -65,8 +68,6 @@ public class TagSensorReading extends BaseModel {
     @Column
     public double sound;
     @Column
-    public double co2;
-    @Column
     public double voltage;
     @Column
     public String dataFormat;
@@ -79,6 +80,7 @@ public class TagSensorReading extends BaseModel {
     @Column
     public double humidityOffset;
 
+
     public TagSensorReading() {
     }
 
@@ -88,6 +90,7 @@ public class TagSensorReading extends BaseModel {
         this.humidity = tag.getHumidity();
         this.humidityOffset = tag.getHumidityOffset();
         this.pressure = tag.getPressure();
+        this.co2 = tag.getCo2();
         this.rssi = tag.getRssi();
         this.light = tag.getLight();
         this.sound = tag.getSound();
@@ -191,6 +194,7 @@ public class TagSensorReading extends BaseModel {
                     reading.rssi,
                     reading.light,
                     reading.sound,
+                    reading.co2,
                     reading.voltage,
                     reading.dataFormat,
                     reading.txPower,
@@ -234,6 +238,7 @@ public class TagSensorReading extends BaseModel {
                 ", rssi=" + rssi +
                 ", light=" + light +
                 ", sound=" + sound +
+                ", co2=" + co2 +
                 ", voltage=" + voltage +
                 ", dataFormat=" + dataFormat +
                 ", txPower=" + txPower +

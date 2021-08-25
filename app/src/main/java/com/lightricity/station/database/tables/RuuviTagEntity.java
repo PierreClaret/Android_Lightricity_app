@@ -41,6 +41,9 @@ public class RuuviTagEntity extends BaseModel {
     @Nullable
     private Double pressure;
     @Column
+    @Nullable
+    private Double co2;
+    @Column
     private boolean favorite;
     @Column
     private double accelX;
@@ -60,8 +63,6 @@ public class RuuviTagEntity extends BaseModel {
     private Double light;
     @Column
     private Double sound;
-    @Column
-    private Double co2;
     @Column
     private Date updateAt;
     @Column
@@ -106,6 +107,7 @@ public class RuuviTagEntity extends BaseModel {
         this.temperature = tag.getTemperature() != null ? tag.getTemperature() : 0.0;
         this.humidity = tag.getHumidity() != null ? tag.getHumidity() : 0.0;
         this.pressure = tag.getPressure() != null ? tag.getPressure() : 0.0;
+        this.co2 = tag.getCo2() != null ? tag.getCo2() : 0.0;
         this.accelX = tag.getAccelX() != null ? tag.getAccelX() : 0.0;
         this.accelY = tag.getAccelY() != null ? tag.getAccelY() : 0.0;
         this.accelZ = tag.getAccelZ() != null ? tag.getAccelZ() : 0.0;
@@ -114,7 +116,6 @@ public class RuuviTagEntity extends BaseModel {
         this.magY = tag.getMagZ() != null ? tag.getMagZ() : 0.0;
         this.light = tag.getLight() != null ? tag.getLight() : 0.0;
         this.sound = tag.getSound() != null ? tag.getSound() : 0.0;
-        this.co2 = tag.getCo2() != null ? tag.getCo2() : 0.0;
         this.voltage = tag.getVoltage() != null ? tag.getVoltage() : 0.0;
         this.dataFormat = tag.getDataFormat() != null ? tag.getDataFormat() : "";
         this.txPower = tag.getTxPower() != null ? tag.getTxPower() : 0;
@@ -127,6 +128,7 @@ public class RuuviTagEntity extends BaseModel {
         this.temperature = reading.temperature;
         this.humidity = reading.humidity;
         this.pressure = reading.pressure;
+        this.co2 = reading.co2;
         this.accelX = reading.accelX;
         this.accelY = reading.accelY;
         this.accelZ = reading.accelZ;
@@ -135,7 +137,6 @@ public class RuuviTagEntity extends BaseModel {
         this.magZ = reading.magZ;
         this.light = reading.light;
         this.sound = reading.sound;
-        this.co2 = reading.co2;
         this.voltage = reading.voltage;
         this.dataFormat = reading.dataFormat;
         this.txPower = reading.txPower;
@@ -271,6 +272,16 @@ public class RuuviTagEntity extends BaseModel {
         this.pressure = pressure;
     }
 
+    //@Override
+    public @org.jetbrains.annotations.Nullable Double getCo2() {
+        return co2;
+    }
+
+    //@Override
+    public void setCo2(@org.jetbrains.annotations.Nullable Double co2) {
+        this.co2 = co2;
+    }
+
     public Boolean isFavorite() {
         return favorite;
     }
@@ -357,15 +368,6 @@ public class RuuviTagEntity extends BaseModel {
         this.sound = sound;
     }
 
-    //@Override
-    public Double getCO2() {
-        return co2;
-    }
-
-    //@Override
-    public void setCO2(Double co2) {
-        this.co2 = co2;
-    }
 
     //@Override
     public Double getVoltage() {

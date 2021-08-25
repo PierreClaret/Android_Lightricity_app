@@ -26,7 +26,7 @@ import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import java.io.File
-//test
+
 @ExperimentalCoroutinesApi
 class AboutActivity : AppCompatActivity(), KodeinAware {
 

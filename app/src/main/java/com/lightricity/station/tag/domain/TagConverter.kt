@@ -15,8 +15,9 @@ class TagConverter(
         Sensor(
             id = entity.id.orEmpty(),
             name = entity.name.orEmpty(),
-            brand = entity.brand.orEmpty(),
             displayName = entity.name ?: entity.id.toString(),
+            sensorid = entity.sensorID,
+            vendorid = entity.vendorID,
             rssi = entity.rssi,
             temperature = entity.temperature,
             humidity = entity.humidity,

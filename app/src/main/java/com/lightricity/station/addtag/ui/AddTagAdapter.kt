@@ -23,8 +23,8 @@ class AddTagAdapter(context: Context,
             convertView ?: LayoutInflater.from(context).inflate(R.layout.row_item_add, parent, false)
 
         view.address.text = item?.id.orEmpty()
-        view.typevalue.text = item?.dataFormat
-        view.model.text = item?.brand
+        view.vendorID.text = item?.vendorID.toString()
+        view.sensorID.text = item?.sensorID.toString()
         view.rssi.text = context.getString(R.string.signal_reading, item?.rssi, context.getString(R.string.signal_unit))
 
         when {
