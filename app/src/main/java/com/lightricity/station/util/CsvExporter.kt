@@ -42,7 +42,7 @@ class CsvExporter(
             var fileWriter = FileWriter(csvFile.absolutePath)
 
             when (tag?.dataFormat) {
-                "Decode.*" -> fileWriter.append(
+                "Frame.*" -> fileWriter.append(
                     context.getString(
                         R.string.export_csv_header_format3,
                         unitsConverter.getTemperatureUnitString(),
@@ -50,6 +50,7 @@ class CsvExporter(
                         unitsConverter.getPressureUnitString(),
                         unitsConverter.getLightUnitString(),
                         unitsConverter.getSoundUnitString(),
+                        unitsConverter.getCO2UnitString(),
 
                     ))
                 "5" -> fileWriter.append(
@@ -60,6 +61,7 @@ class CsvExporter(
                         unitsConverter.getPressureUnitString(),
                         unitsConverter.getLightUnitString(),
                         unitsConverter.getSoundUnitString(),
+                        unitsConverter.getCO2UnitString(),
                     ))
                 else -> fileWriter.append(
                     context.getString(
@@ -69,6 +71,7 @@ class CsvExporter(
                         unitsConverter.getPressureUnitString(),
                         unitsConverter.getLightUnitString(),
                         unitsConverter.getSoundUnitString(),
+                        unitsConverter.getCO2UnitString(),
                     ))
             }
             fileWriter.append('\n')
