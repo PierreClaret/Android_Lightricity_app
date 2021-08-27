@@ -9,6 +9,7 @@ data class Sensor(
     val frametype: Int? = null,
     val sensorid: Int? = null,
     val vandorid: Int? = null,
+    val brand: String,
     val displayName: String,
     val rssi: Int,
     val temperature: Double? = null,

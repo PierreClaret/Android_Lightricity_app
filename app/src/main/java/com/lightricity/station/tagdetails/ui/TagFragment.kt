@@ -208,9 +208,6 @@ class TagFragment : Fragment(R.layout.view_tag_detail), KodeinAware {
         if (tag.sound == 0.0){
             tagSoundLayout.visibility = View.GONE
         }else { tagSoundTextView.text = viewModel.getSoundString(tag)}
-        if (tag.co2 == 0.0){
-            tagCO2Layout.visibility = View.GONE
-        }else { tagCO2TextView.text = viewModel.getCO2String(tag)}
         if (tag.accelX == 0.0 && tag.accelY == 0.0 && tag.accelZ == 0.0){
             tagAccelarationLayout.visibility = View.GONE
         }else { tagAccelerationTextView.text = viewModel.getMovementString(tag)}

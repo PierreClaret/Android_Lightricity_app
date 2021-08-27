@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Android_Lightricity_app.iml" filepath="$PROJECT_DIR$/.idea/modules/Android_Lightricity_app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MPChartLib/Android_Lightricity_app.MPChartLib.iml" filepath="$PROJECT_DIR$/.idea/modules/MPChartLib/Android_Lightricity_app.MPChartLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Android_Lightricity_app.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Android_Lightricity_app.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-708742026/Android_Lightricity_app.bluetooth_library.iml" filepath="$PROJECT_DIR$/.idea/modules/-708742026/Android_Lightricity_app.bluetooth_library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1041792117/Android_Lightricity_app.default_bluetooth_library.iml" filepath="$PROJECT_DIR$/.idea/modules/-1041792117/Android_Lightricity_app.default_bluetooth_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Android_Lightricity_app_1.iml" filepath="$PROJECT_DIR$/.idea/modules/Android_Lightricity_app_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MPChartLib/Android_Lightricity_app_1.MPChartLib.iml" filepath="$PROJECT_DIR$/.idea/modules/MPChartLib/Android_Lightricity_app_1.MPChartLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Android_Lightricity_app_1.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Android_Lightricity_app_1.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-708742026/Android_Lightricity_app_1.bluetooth_library.iml" filepath="$PROJECT_DIR$/.idea/modules/-708742026/Android_Lightricity_app_1.bluetooth_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1041792117/Android_Lightricity_app_1.default_bluetooth_library.iml" filepath="$PROJECT_DIR$/.idea/modules/-1041792117/Android_Lightricity_app_1.default_bluetooth_library.iml" />
     </modules>
   </component>
 </project>
